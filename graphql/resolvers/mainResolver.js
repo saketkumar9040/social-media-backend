@@ -1,9 +1,9 @@
-import { postResolvers } from "./postResolver.js";
-import { userResolvers } from "./userResolver.js";
+import { postResolver} from "./postResolver.js";
+import { userResolver } from "./userResolver.js";
 
 export const mainResolver = {
     Query : {
-        ...postResolvers.Query,
-        
+        ...postResolver.Query,
+        ...userResolver.Query     
     }
-}
+};
