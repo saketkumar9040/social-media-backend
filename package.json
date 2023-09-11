@@ -1,0 +1,23 @@
+{
+  "name": "social-media-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "This is the backend of social media app in react,node,mongodb,graphql etc.",
+  "main": "index.js",
+  "scripts": {
+    "main": "node index.js",
+    "dev": "npx nodemon index.js"
+  },
+  "author": "saket kumar",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^3.12.1",
+    "cors": "^2.8.5",
+    "graphql": "^16.8.0",
+    "graphql-tag": "^2.12.6",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
