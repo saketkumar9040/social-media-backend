@@ -3,9 +3,9 @@ import dotenv from "dotenv";
 import {connectDB} from "./configs/dbConfig.js"
 
 dotenv.config();
-connectDB()
+connectDB();
 
-
+import * as Post from "./modals/postModal.js"
 
 const typeDefs = gql`
    type Query{
