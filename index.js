@@ -1,4 +1,11 @@
 import { gql,ApolloServer } from "apollo-server";
+import dotenv from "dotenv";
+import {connectDB} from "./configs/dbConfig.js"
+
+dotenv.config();
+connectDB()
+
+
 
 const typeDefs = gql`
    type Query{
@@ -17,6 +24,8 @@ const server = new ApolloServer({
     resolvers
 });
 
+
+
 server.listen({port: 3000}).then((res)=>{
     console.log(`server running on ${res.url}`)
-})
+});
