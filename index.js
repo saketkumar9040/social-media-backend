@@ -5,17 +5,32 @@ import {connectDB} from "./configs/dbConfig.js"
 dotenv.config();
 connectDB();
 
-import * as Post from "./modals/postModal.js"
+import  {Post} from "./modals/postModal.js"
 
 const typeDefs = gql`
+
+   type post {
+    id:ID!
+    body:String!
+    createdAt:String!
+    postedBy:String!
+
+   }
    type Query{
-      sayHi:String!
+      getPosts:[post]
    }
 `
 
 const resolvers = {
     Query : {
-        sayHi: () => "Hello World!"
+       async getPosts(){
+            try {
+               const posts = await Post.find();
+               return posts
+            } catch (error) {
+                console.log(error)
+            }
+        }
     }
 };
 
