@@ -1,5 +1,6 @@
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { UserInputError } from "apollo-server";
 
 import { User } from "../../modals/userModal.js";
 
@@ -9,8 +10,23 @@ export const userResolver = {
       // validate user input data
       // make sure user isn't already exists
 
-      // hash password and create an auth token
-
+      const userExist =await User.findOne({username});
+      if(userExist){
+        throw new UserInputError("Username already in use",{
+          errors:{
+            username:"This username is already in use. Please try with another username"
+          }
+        })
+      };
+      const emailExists = await User.findOne({email});
+      if(emailExists){
+        throw new UserInputError("email already in use",{
+          errors:{
+            email:"This email is already in use,Please try with another email"
+          }
+        })
+      }
+   
       password = await bcryptjs.hash(password, 12);
       const newUserRegistration = new User({
         email,
