@@ -1,4 +1,4 @@
-import { gql } from "apollo-server"
+import { gql } from "apollo-server";
 
 export const typeDefs = gql`
 
@@ -6,10 +6,9 @@ export const typeDefs = gql`
       id:ID!
       username:String!
       email:String!
-      password:String!
       createdAt:String!
+      token:String!
    }
-
    type Post {
     id:ID!
     body:String!
@@ -17,8 +16,15 @@ export const typeDefs = gql`
     postedBy:String!
 
    }
+   input RegisterInput {
+      username:String!
+      email:String!
+      password:String! 
+   }
    type Query{
       getPosts:[Post]
-      getUsers:[User]
    }
-`
+   type Mutation {
+      register(registerInput : RegisterInput):User!
+   }
+`;

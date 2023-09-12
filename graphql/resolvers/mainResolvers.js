@@ -5,5 +5,8 @@ export const mainResolvers = {
     Query : {
         ...postResolver.Query,
         ...userResolver.Query     
+    },
+    Mutation:{
+      ...userResolver.Mutation
     }
 };
