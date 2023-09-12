@@ -2,14 +2,14 @@ import { ApolloServer } from "apollo-server";
 import dotenv from "dotenv";
 import {connectDB} from "./configs/dbConfig.js";
 import { typeDefs } from "./graphql/typeDefs.js";
-import { resolvers } from "./graphql/resolvers/resolvers.js";
+import { mainResolvers } from "./graphql/resolvers/mainResolvers.js";
 
 dotenv.config();
 connectDB();
 
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers:mainResolvers
 });
 
 server.listen({port: process.env.PORT}).then((res)=>{
