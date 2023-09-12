@@ -5,7 +5,6 @@ export const postResolver = {
     async getPosts() {
       try {
         const posts = await Post.find();
-        console.log(posts)
         return posts;
       } catch (error) {
         console.log(error);

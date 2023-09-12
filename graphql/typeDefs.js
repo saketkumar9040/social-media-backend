@@ -2,7 +2,15 @@ import { gql } from "apollo-server"
 
 export const typeDefs = gql`
 
-   type post {
+   type User {
+      id:ID!
+      username:String!
+      email:String!
+      password:String!
+      createdAt:String!
+   }
+
+   type Post {
     id:ID!
     body:String!
     createdAt:String!
@@ -10,6 +18,7 @@ export const typeDefs = gql`
 
    }
    type Query{
-      getPosts:[post]
+      getPosts:[Post]
+      getUsers:[User]
    }
 `
