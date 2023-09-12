@@ -64,7 +64,7 @@ export const userResolver = {
         errors.general = "User not found"
         throw new UserInputError("User not found",{errors})
       }
-      const matchPassword = bcryptjs.compare(password,userExists.password);
+      const matchPassword =await bcryptjs.compare(password,userExists.password);
       if(!matchPassword){
         errors.general = "Invalid credentials"
         throw new UserInputError("Invalid credentials",{errors})
